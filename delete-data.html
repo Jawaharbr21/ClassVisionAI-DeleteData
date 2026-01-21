@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Deletion Request | ClassVisionAI</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        background: linear-gradient(135deg, #e0e7ff, #f8fafc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #1f2937;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 560px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px 36px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 18px;
+        background: #eef2ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: #4f46e5;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 28px;
+        text-align: center;
+        color: #1e3a8a;
+    }
+
+    .subtitle {
+        margin-top: 12px;
+        font-size: 14.8px;
+        color: #4b5563;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    form {
+        margin-top: 30px;
+    }
+
+    .field {
+        margin-bottom: 18px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 15px 16px;
+        font-size: 14.5px;
+        border-radius: 12px;
+        border: 1.6px solid #d1d5db;
+        outline: none;
+        transition: all 0.2s ease;
+        font-family: inherit;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #9ca3af;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+    }
+
+    textarea {
+        resize: none;
+        min-height: 120px;
+    }
+
+    .notice {
+        background: #f1f5ff;
+        border-left: 4px solid #4f46e5;
+        padding: 14px;
+        font-size: 13.8px;
+        border-radius: 10px;
+        margin: 22px 0;
+        line-height: 1.6;
+        color: #374151;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 15.5px;
+        font-weight: 600;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: #ffffff;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .btn:hover {
+        box-shadow: 0 8px 20px rgba(239,68,68,0.3);
+    }
+
+    .btn:active {
+        transform: scale(0.97);
+    }
+
+    .confirmation {
+        display: none;
+        margin-top: 30px;
+        background: #ecfdf5;
+        border-left: 4px solid #10b981;
+        padding: 18px;
+        border-radius: 12px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #065f46;
+        animation: fadeIn 0.4s ease;
+        text-align: center;
+    }
+
+    .footer {
+        margin-top: 26px;
+        font-size: 12.8px;
+        color: #6b7280;
+        text-align: center;
+        line-height: 1.6;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="icon">🗑️</div>
+
+    <h1>Request Data Deletion</h1>
+
+    <div class="subtitle">
+        Use this form to request deletion of data associated with your
+        <b>ClassVisionAI</b> institutional account.
+    </div>
+
+    <form id="deleteForm" onsubmit="handleSubmit(event)">
+
+        <div class="field">
+            <input type="text" placeholder="Institution-issued ID" required>
+        </div>
+
+        <div class="field">
+            <input type="email" placeholder="Registered institutional email address" required>
+        </div>
+
+        <div class="field">
+            <input type="text" placeholder="User role (Admin / Coordinator / Faculty)" required>
+        </div>
+
+        <div class="field">
+            <textarea placeholder="Reason for request (optional)"></textarea>
+        </div>
+
+        <div class="notice">
+            All deletion requests are verified and processed only after
+            <b>admin approval</b>, in accordance with institutional policies.
+        </div>
+
+        <button type="submit" class="btn">
+            Submit Deletion Request
+        </button>
+
+    </form>
+
+    <div id="confirmationMessage" class="confirmation">
+        ✅ <b>Request submitted successfully.</b><br>
+        We will delete your information within <b>7 business days</b>.
+    </div>
+
+    <div class="footer">
+        For support, contact: <b>support@classvision.com</b><br>
+        Authorized institutional use only.
+    </div>
+
+</div>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault();
+
+    document.getElementById("deleteForm").style.display = "none";
+    document.getElementById("confirmationMessage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
